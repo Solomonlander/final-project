@@ -1,0 +1,1 @@
+document.getElementById("app").innerHTML = "Project is working!";
