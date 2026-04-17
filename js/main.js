@@ -11,7 +11,8 @@ fetch("https://fakestoreapi.com/products")
             div.innerHTML = `
         <h3>${product.title}</h3>
         <p>$${product.price}</p>
-        <img src="${product.image}" width="100"/>
+        <img src="${product.image}" width="120"/>
+        <br>
         <button class="add-btn">Add to Cart</button>
       `;
 
@@ -23,7 +24,7 @@ fetch("https://fakestoreapi.com/products")
     });
 
 
-// ✅ ADD TO CART (LOCALSTORAGE + EVENT)
+// ✅ ADD TO CART + LOCAL STORAGE
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("add-btn")) {
         const productDiv = e.target.parentElement;
@@ -55,16 +56,18 @@ function updateCartCount() {
 }
 
 
-// ✅ SHOW SMALL MESSAGE (BETTER THAN ALERT)
+// ✅ MESSAGE POPUP (BETTER UX)
 function showMessage(text) {
-    const message = document.createElement("p");
+    const message = document.createElement("div");
     message.textContent = text;
-    message.style.background = "green";
-    message.style.color = "white";
-    message.style.padding = "10px";
+
     message.style.position = "fixed";
     message.style.top = "10px";
     message.style.right = "10px";
+    message.style.background = "green";
+    message.style.color = "white";
+    message.style.padding = "10px";
+    message.style.borderRadius = "5px";
 
     document.body.appendChild(message);
 
